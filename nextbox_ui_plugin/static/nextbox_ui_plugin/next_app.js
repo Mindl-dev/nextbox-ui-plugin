@@ -64,7 +64,6 @@
                     return { 'stroke-dasharray': '5' }
                 }
             },
-            },
         },
         // Display Node icon. Displays a dot if set to 'false'.
         showIcon: true,
