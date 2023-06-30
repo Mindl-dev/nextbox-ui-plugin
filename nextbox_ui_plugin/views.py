@@ -311,7 +311,7 @@ def get_vlan_topology(nb_devices_qs, vlans):
                         'label': f"Cable {source_cable[1].id}",
                         'source': source_cable[0].device.id,
                         'target': dest_cable[-1].device.id,
-                        'color': source_cable[0].color,
+                        'color': f"#{source_cable[0].color}",
                         'sourceDeviceName': source_cable[0].device.name,
                         'targetDeviceName': dest_cable[-1].device.name,
                         "srcIfName": if_shortname(source_cable[0].name),
@@ -426,7 +426,6 @@ def get_topology(nb_devices_qs):
         if NETBOX_CURRENT_VERSION > version.parse("3.3"):
             link.termination_a = link.a_terminations[0]
             link.termination_b = link.b_terminations[0]
-        print(link.color)
         topology_dict['links'].append({
             'id': link.id,
             'label': f"Cable {link.id}",
@@ -435,7 +434,7 @@ def get_topology(nb_devices_qs):
             'target': link.termination_b.device.id,
             'sourceDeviceName': link.termination_a.device.name,
             'targetDeviceName': link.termination_b.device.name,
-            'color': link.color,
+            'color': f"#{link.color}",
             "srcIfName": if_shortname(link.termination_a.name),
             "tgtIfName": if_shortname(link.termination_b.name),
             
@@ -470,7 +469,7 @@ def get_topology(nb_devices_qs):
             'id': link_id,
             'source': cable_path[0][0].device.id,
             'target': cable_path[-1][2].device.id,
-            'color': cable_path[0][0].color,
+            'color': f"#{cable_path[0][0].color}",
             "srcIfName": if_shortname(cable_path[0][0].name),
             "tgtIfName": if_shortname(cable_path[-1][2].name),
             "isLogicalMultiCable": True,
