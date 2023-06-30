@@ -315,6 +315,7 @@ def get_vlan_topology(nb_devices_qs, vlans):
                         'targetDeviceName': dest_cable[-1].device.name,
                         "srcIfName": if_shortname(source_cable[0].name),
                         "tgtIfName": if_shortname(dest_cable[-1].name),
+                        "color": if_shortname(source_cable[0].color),
                         })
 
     return topology_dict, device_roles, multi_cable_connections, list(all_device_tags)
