@@ -70,7 +70,7 @@
             //    if (model._data.is_new === 'yes') {
             //        return '#148D09'
             //    }
-            color: 'model.color';    
+            color: 'model.color',
             },
         },
         // Display Node icon. Displays a dot if set to 'false'.
