@@ -71,7 +71,7 @@
                     return '#148D09'
                 }
                 if (model.color !== '#') {
-                    return model.color
+                    return 'model.color'
                 }
             },
         },
