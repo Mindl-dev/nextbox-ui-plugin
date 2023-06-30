@@ -58,6 +58,7 @@
             linkType: 'curve',
             sourcelabel: 'model.srcIfName',
             targetlabel: 'model.tgtIfName',
+            color: 'model.color',
             style: function(model) {
                 if (model._data.is_dead === 'yes') {
                     return { 'stroke-dasharray': '5' }
@@ -70,8 +71,7 @@
             //    if (model._data.is_new === 'yes') {
             //        return '#148D09'
             //    }
-            color: 'model.color',
-            },
+            //},
         },
         // Display Node icon. Displays a dot if set to 'false'.
         showIcon: true,
