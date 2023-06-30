@@ -311,11 +311,11 @@ def get_vlan_topology(nb_devices_qs, vlans):
                         'label': f"Cable {source_cable[1].id}",
                         'source': source_cable[0].device.id,
                         'target': dest_cable[-1].device.id,
+                        'color': source_cable[0].color,
                         'sourceDeviceName': source_cable[0].device.name,
                         'targetDeviceName': dest_cable[-1].device.name,
                         "srcIfName": if_shortname(source_cable[0].name),
                         "tgtIfName": if_shortname(dest_cable[-1].name),
-                        "color": source_cable[0].color,
                         })
 
     return topology_dict, device_roles, multi_cable_connections, list(all_device_tags)
@@ -434,9 +434,10 @@ def get_topology(nb_devices_qs):
             'target': link.termination_b.device.id,
             'sourceDeviceName': link.termination_a.device.name,
             'targetDeviceName': link.termination_b.device.name,
+            'color': link.color,
             "srcIfName": if_shortname(link.termination_a.name),
             "tgtIfName": if_shortname(link.termination_b.name),
-            "color": link.color,
+            
         })
         if not (isinstance(link.termination_a, Interface) or isinstance(link.termination_b, Interface)):
             # Skip trace if none of cable terminations is an Interface
@@ -468,9 +469,9 @@ def get_topology(nb_devices_qs):
             'id': link_id,
             'source': cable_path[0][0].device.id,
             'target': cable_path[-1][2].device.id,
+            'color': cable_path[0][0].color,
             "srcIfName": if_shortname(cable_path[0][0].name),
             "tgtIfName": if_shortname(cable_path[-1][2].name),
-            "color": cable_path[0][0].color,
             "isLogicalMultiCable": True,
         })
     return topology_dict, device_roles, multi_cable_connections, all_device_tags
