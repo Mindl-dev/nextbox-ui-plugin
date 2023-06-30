@@ -70,7 +70,7 @@
                 if (model._data.is_new === 'yes') {
                     return '#148D09'
                 }
-                if (model.color) {
+                if (model.color) != "#" {
                     return model.color
                 }
             },
