@@ -315,7 +315,7 @@ def get_vlan_topology(nb_devices_qs, vlans):
                         'targetDeviceName': dest_cable[-1].device.name,
                         "srcIfName": if_shortname(source_cable[0].name),
                         "tgtIfName": if_shortname(dest_cable[-1].name),
-                        "color": if_shortname(source_cable[0].color),
+                        "color": source_cable[0].color,
                         })
 
     return topology_dict, device_roles, multi_cable_connections, list(all_device_tags)
@@ -435,7 +435,8 @@ def get_topology(nb_devices_qs):
             'sourceDeviceName': link.termination_a.device.name,
             'targetDeviceName': link.termination_b.device.name,
             "srcIfName": if_shortname(link.termination_a.name),
-            "tgtIfName": if_shortname(link.termination_b.name)
+            "tgtIfName": if_shortname(link.termination_b.name),
+            "color: link.color,
         })
         if not (isinstance(link.termination_a, Interface) or isinstance(link.termination_b, Interface)):
             # Skip trace if none of cable terminations is an Interface
@@ -469,6 +470,7 @@ def get_topology(nb_devices_qs):
             'target': cable_path[-1][2].device.id,
             "srcIfName": if_shortname(cable_path[0][0].name),
             "tgtIfName": if_shortname(cable_path[-1][2].name),
+            "color": cable_path[0][0].color,
             "isLogicalMultiCable": True,
         })
     return topology_dict, device_roles, multi_cable_connections, all_device_tags
