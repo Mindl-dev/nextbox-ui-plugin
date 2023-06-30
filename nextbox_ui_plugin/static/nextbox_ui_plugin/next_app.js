@@ -63,13 +63,14 @@
                     return { 'stroke-dasharray': '5' }
                 }
             },
-            color: function(model) {
-                if (model._data.is_dead === 'yes') {
-                    return '#E40039'
-                }
-                if (model._data.is_new === 'yes') {
-                    return '#148D09'
-                }
+            //color: function(model) {
+            //    if (model._data.is_dead === 'yes') {
+            //        return '#E40039'
+            //    }
+            //    if (model._data.is_new === 'yes') {
+            //        return '#148D09'
+            //    }
+            color: 'model.color';    
             },
         },
         // Display Node icon. Displays a dot if set to 'false'.
