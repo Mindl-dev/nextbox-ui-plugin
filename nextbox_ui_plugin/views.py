@@ -436,7 +436,7 @@ def get_topology(nb_devices_qs):
             'targetDeviceName': link.termination_b.device.name,
             "srcIfName": if_shortname(link.termination_a.name),
             "tgtIfName": if_shortname(link.termination_b.name),
-            "color: link.color,
+            "color": link.color,
         })
         if not (isinstance(link.termination_a, Interface) or isinstance(link.termination_b, Interface)):
             # Skip trace if none of cable terminations is an Interface
