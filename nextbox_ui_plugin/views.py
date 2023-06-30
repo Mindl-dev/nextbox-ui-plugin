@@ -426,6 +426,7 @@ def get_topology(nb_devices_qs):
         if NETBOX_CURRENT_VERSION > version.parse("3.3"):
             link.termination_a = link.a_terminations[0]
             link.termination_b = link.b_terminations[0]
+        print(link.color)
         topology_dict['links'].append({
             'id': link.id,
             'label': f"Cable {link.id}",
