@@ -329,7 +329,7 @@
                 
                 if (this.targetlabel()) {
                     el = this.view('target');
-                    point = line.end.add(n);
+                    point = line.end.subtract(n);
                     el.set('x', point.x);
                     el.set('y', point.y);
                     el.set('text', this.targetlabel());
